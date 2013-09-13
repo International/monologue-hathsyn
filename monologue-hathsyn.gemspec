@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["George Opritescu"]
   s.email       = ["ssscripting@gmail.com"]
   s.homepage    = "http://debugarea.com"
-  s.summary     = "Summary of MonologueHathsyn."
-  s.description = "Description of MonologueHathsyn."
+  s.summary     = "Monologue plugin to perform syntax highlighting, without any markdown support."
+  s.description = "Monologue plugin to perform syntax highlighting, without any markdown support. Inspired heavily from monologue-markdown plugin."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
