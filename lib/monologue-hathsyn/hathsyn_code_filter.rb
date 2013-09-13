@@ -1,6 +1,7 @@
 module MonologueHathsyn
   class HathsynCodeFilter < HTML::Pipeline::Filter
     def call
+      puts "HathsynCodeFilter called"
       doc.search("[data-lang]").each do |code_node|
         puts "Found node #{code_node.text}"
         actual_lang = code_node["data-lang"]
