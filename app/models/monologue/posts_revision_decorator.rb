@@ -3,6 +3,7 @@ Monologue::PostsRevision.class_eval do
     db_content = read_attribute(:content)
     doc = Nokogiri::HTML.fragment(CGI.unescapeHTML(String.new(db_content)))
     priv_output "Reading fragment :|#{db_content}|"
+    puts "DOC=#{doc.inspect}"
 
     doc.search("[data-lang]").each do |code_node|
       priv_output "found match #{code_node.inspect}"
