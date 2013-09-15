@@ -8,8 +8,10 @@ module MonologueHathsyn
     isolate_namespace MonologueHathsyn
 
     def self.activate
-      puts "ACTIVATING"
-      Dir.glob(File.join(File.dirname(__FILE__), "../../app/**/*_decorator.rb")) do |c|
+      Rails.logger.info "ACTIVATING"
+      files_to_req = Dir[File.join(File.dirname(__FILE__), "../../app/**/*_decorator.rb")]
+      Rails.logger.info "REQ: #{files_to_req.inspect}"
+      files_to_req.each do |c|
         Rails.env.production? ? require(c) : load(c)
       end
     end

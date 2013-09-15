@@ -1,4 +1,4 @@
-puts "BLAAAAAAAAAAAAAAAAA"
+Rails.logger.info "AAAAAAAAAAAAAaaaaa"
 require "monologue-hathsyn/engine"
 
 module MonologueHathsyn
