@@ -7,7 +7,7 @@ Monologue::PostsRevision.class_eval do
     puts "CHILDREN:#{doc.children.inspect}"
     puts "RELEVANT:#{doc.children.search("[data-lang]").inspect}"
 
-    doc.search("[data-lang]").each do |code_node|
+    doc.children.search("[data-lang]").each do |code_node|
       priv_output "found match #{code_node.inspect}"
       actual_lang = code_node["data-lang"]
       text = code_node.text
