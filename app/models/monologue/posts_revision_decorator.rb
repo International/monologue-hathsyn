@@ -1,7 +1,7 @@
 Monologue::PostsRevision.class_eval do
   def content
     db_content = read_attribute(:content)
-    doc = Nokogiri::HTML.fragment(db_content)
+    doc = Nokogiri::HTML.fragment(CGI.unescapeHTML(String.new(db_content)))
     priv_output "Reading fragment :|#{db_content}|"
 
     doc.search("[data-lang]").each do |code_node|
