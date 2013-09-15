@@ -2,7 +2,7 @@ Monologue::PostsRevision.class_eval do
   def content
     db_content = read_attribute(:content)
     doc = Nokogiri::HTML.fragment(db_content)
-    puts "Reading fragment :|#{db_content}|"
+    priv_output "Reading fragment :|#{db_content}|"
     doc.search("[data-lang]").each do |code_node|
       actual_lang = code_node["data-lang"]
       text = code_node.text
@@ -10,7 +10,13 @@ Monologue::PostsRevision.class_eval do
       code_node.replace(CodeRay.scan(text, actual_lang).div)
     end
     res = doc.to_html
-    puts "Result:|#{res}|"
+    priv_output "Result:|#{res}|"
     res
+  end
+
+
+  def priv_output(msg)
+    puts "Result:|#{msg}|"
+    Rails.logger.info "Result:|#{msg}|"
   end
 end
