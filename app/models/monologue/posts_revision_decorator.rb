@@ -5,6 +5,7 @@ Monologue::PostsRevision.class_eval do
     priv_output "Reading fragment :|#{db_content}|"
 
     doc.search("[data-lang]").each do |code_node|
+      priv_output "found match #{code_node.inspect}"
       actual_lang = code_node["data-lang"]
       text = code_node.text
       replacement = CodeRay.scan(text, actual_lang).div
